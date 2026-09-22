@@ -1,0 +1,91 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f9f9f9;
+  --foreground: #1a1a1c;
+  --card: #ffffff;
+  --card-border: rgb(0 0 0 / 0.04);
+  --sheet: #ebebeb;
+  --muted: #737373;
+  --island: #242426;
+  --island-fg: #e7e5e4;
+  --soft: #e8e9ec;
+  --soft-hover: #dfe2e6;
+}
+
+.dark {
+  --background: #111113;
+  --foreground: #ececed;
+  --card: #1c1c1f;
+  --card-border: rgb(255 255 255 / 0.06);
+  --sheet: #18181b;
+  --muted: #a1a1aa;
+  --island: #f4f4f5;
+  --island-fg: #18181b;
+  --soft: #2a2a2e;
+  --soft-hover: #323238;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-border: var(--card-border);
+  --color-sheet: var(--sheet);
+  --color-muted: var(--muted);
+  --color-island: var(--island);
+  --color-island-fg: var(--island-fg);
+  --color-soft: var(--soft);
+  --color-soft-hover: var(--soft-hover);
+  --color-canvas: #f6f6f8;
+  --color-panel: #f0f0f2;
+  --color-tagbg: #f3f4f6;
+  --color-darkpill: #242426;
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --shadow-smooth: 0 10px 35px -5px rgb(0 0 0 / 0.04),
+    0 2px 8px -1px rgb(0 0 0 / 0.02);
+  --shadow-window: 0 15px 35px -5px rgb(15 23 42 / 0.08);
+  --animate-marquee-left: marquee-left 28s linear infinite;
+  --animate-marquee-right: marquee-right 32s linear infinite;
+}
+
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes theme-menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+body {
+  background-color: var(--background);
+  background-attachment: fixed;
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
