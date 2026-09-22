@@ -4,14 +4,24 @@ import { DynamicIsland } from "@/components/layout/DynamicIsland";
 import { LocationBar } from "@/components/layout/LocationBar";
 import { SITE } from "@/lib/constants";
 
-export function Header() {
+type HeaderProps = {
+  action?: "cv" | "back";
+};
+
+export function Header({ action = "cv" }: HeaderProps) {
   return (
     <header className="relative z-20 flex w-full items-center justify-between px-6 py-5 text-xs tracking-normal lg:px-12">
       <div className="flex items-center space-x-2">
-        <Button href={SITE.cvHref} variant="soft">
-          <DocumentIcon className="h-3.5 w-3.5 text-muted" />
-          <span>Download CV</span>
-        </Button>
+        {action === "back" ? (
+          <Button href="/#selected-works" variant="soft">
+            <span>← Back</span>
+          </Button>
+        ) : (
+          <Button href={SITE.cvHref} variant="soft">
+            <DocumentIcon className="h-3.5 w-3.5 text-muted" />
+            <span>Download CV</span>
+          </Button>
+        )}
       </div>
       <DynamicIsland />
       <LocationBar />

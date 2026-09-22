@@ -102,6 +102,42 @@ export function ChevronDownIcon(props: IconProps) {
   );
 }
 
+export function ChevronLeftIcon(props: IconProps) {
+  return (
+    <svg {...base({ stroke: "currentColor", strokeWidth: 2, ...props })}>
+      <path d="m15 18-6-6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function ChevronRightIcon(props: IconProps) {
+  return (
+    <svg {...base({ stroke: "currentColor", strokeWidth: 2, ...props })}>
+      <path d="m9 18 6-6-6-6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function ExpandIcon(props: IconProps) {
+  return (
+    <svg {...base({ stroke: "currentColor", strokeWidth: 2, ...props })}>
+      <polyline points="15 3 21 3 21 9" strokeLinecap="round" strokeLinejoin="round" />
+      <polyline points="9 21 3 21 3 15" strokeLinecap="round" strokeLinejoin="round" />
+      <line x1="21" x2="14" y1="3" y2="10" strokeLinecap="round" strokeLinejoin="round" />
+      <line x1="3" x2="10" y1="21" y2="14" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function CloseIcon(props: IconProps) {
+  return (
+    <svg {...base({ stroke: "currentColor", strokeWidth: 2, ...props })}>
+      <path d="M18 6 6 18" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="m6 6 12 12" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export function CheckIcon(props: IconProps) {
   return (
     <svg {...base({ stroke: "currentColor", strokeWidth: 2.2, ...props })}>

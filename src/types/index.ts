@@ -32,6 +32,14 @@ export type ThemePreference = "light" | "dark" | "system";
 
 export type ProjectTheme = "light" | "dark";
 
+export type ProjectPreviewId = "motscles" | "spacetime" | "expedition" | "synthesio";
+
+export type ProjectImage = {
+  src: string;
+  alt: string;
+  label: string;
+};
+
 export type Project = {
   id: string;
   title: string;
@@ -39,5 +47,14 @@ export type Project = {
   href: string;
   caption: string;
   theme: ProjectTheme;
-  preview: "motscles" | "spacetime" | "expedition" | "synthesio";
+  preview: ProjectPreviewId;
+  role: string;
+  year: string;
+  stack: readonly string[];
+  overview: string;
+  challenge: string;
+  approach: string;
+  outcome: string;
+  images: readonly ProjectImage[];
+  repoHref?: string;
 };
