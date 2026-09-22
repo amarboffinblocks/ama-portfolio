@@ -1,10 +1,11 @@
 import { Button } from "@/components/common";
+import { AboutSection } from "@/components/hero/AboutSection";
 import { CertificateGrid } from "@/components/hero/CertificateGrid";
 import { EducationList } from "@/components/hero/EducationList";
 import { ExperienceList } from "@/components/hero/ExperienceList";
 import { SocialGrid } from "@/components/hero/SocialGrid";
 import { ChevronUpIcon } from "@/components/icons";
-import { freelance, workExperience } from "@/data/experience";
+import { workExperience } from "@/data/experience";
 import { cn } from "@/lib/cn";
 
 type ProfileDrawerProps = {
@@ -30,7 +31,8 @@ export function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
         </Button>
         <div className="grow border-t border-dashed border-neutral-200 dark:border-white/10" />
       </div>
-      <ExperienceList freelance={freelance} work={workExperience} />
+      <AboutSection />
+      <ExperienceList work={workExperience} />
       <EducationList />
       <CertificateGrid />
       <SocialGrid />

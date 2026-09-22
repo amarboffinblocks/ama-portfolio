@@ -22,10 +22,7 @@ function EducationRow({ item }: { item: EducationItem }) {
 export function EducationList() {
   return (
     <div className="mb-10">
-      <span className="block font-mono text-[11px] uppercase tracking-widest text-neutral-400">
-        {"// EDUCATION"}
-      </span>
-      <h3 className="mb-4 mt-1 text-base font-semibold text-foreground">Education</h3>
+      <h3 className="mb-4 text-base font-semibold text-foreground">Education</h3>
       <div className="space-y-4">
         {education.map((item) => (
           <EducationRow key={`${item.school}-${item.dates}`} item={item} />

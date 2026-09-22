@@ -73,33 +73,18 @@ export function ExperienceRow({ item }: { item: ExperienceItem }) {
 }
 
 export function ExperienceList({
-  freelance,
   work,
 }: {
-  freelance: ExperienceItem;
   work: ExperienceItem[];
 }) {
   return (
-    <>
-      <div className="mb-8 mt-4">
-        <span className="font-mono text-[11px] uppercase tracking-widest text-neutral-400">
-          {"// FREELANCE"}
-        </span>
-        <div className="mt-4">
-          <ExperienceRow item={freelance} />
-        </div>
+    <div className="mb-10 mt-4">
+      <h3 className="mb-4 text-base font-semibold text-foreground">Experience</h3>
+      <div className="space-y-4">
+        {work.map((item) => (
+          <ExperienceRow key={`${item.company}-${item.dates}`} item={item} />
+        ))}
       </div>
-      <div className="mb-10">
-        <span className="block font-mono text-[11px] uppercase tracking-widest text-neutral-400">
-          {"// WORK"}
-        </span>
-        <h3 className="mb-4 mt-1 text-base font-semibold text-foreground">Experience</h3>
-        <div className="space-y-4">
-          {work.map((item) => (
-            <ExperienceRow key={`${item.company}-${item.dates}`} item={item} />
-          ))}
-        </div>
-      </div>
-    </>
+    </div>
   );
 }

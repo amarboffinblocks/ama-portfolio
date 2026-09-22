@@ -1,12 +1,5 @@
 import type { ExperienceItem } from "@/types";
 
-export const freelance: ExperienceItem = {
-  company: "laroutourne studio",
-  role: "Front-end Developer, and sometimes more",
-  dates: "since 2018",
-  icon: "search",
-};
-
 export const workExperience: ExperienceItem[] = [
   {
     company: "spintank",

@@ -6,7 +6,7 @@ export function ProjectsSection() {
   return (
     <SectionWrapper id="selected-works">
       <Container className="py-10">
-        <SectionHeading pretitle="// SELECTED WORKS" title="Selected Projects" />
+        <SectionHeading title="Selected Projects" />
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-10">
           {projects.map((project) => (
             <ProjectCard key={project.id} project={project} />

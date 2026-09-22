@@ -47,10 +47,7 @@ function CertificateCard({ item }: { item: CertificateItem }) {
 export function CertificateGrid() {
   return (
     <div className="mb-10">
-      <span className="block font-mono text-[11px] uppercase tracking-widest text-neutral-400">
-        {"// CERTIFICATES"}
-      </span>
-      <h3 className="mb-4 mt-1 text-base font-semibold text-foreground">Certificates</h3>
+      <h3 className="mb-4 text-base font-semibold text-foreground">Certificates</h3>
       <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2">
         {certificates.map((item) => (
           <CertificateCard key={`${item.name}-${item.year}`} item={item} />

@@ -48,10 +48,7 @@ function SocialCard({ link }: { link: SocialLink }) {
 export function SocialGrid() {
   return (
     <div className="pt-2">
-      <span className="block font-mono text-[11px] uppercase tracking-widest text-neutral-400">
-        {"// ABOUT ME"}
-      </span>
-      <h3 className="mb-4 mt-1 text-base font-semibold text-foreground">About</h3>
+      <h3 className="mb-4 text-base font-semibold text-foreground">Social</h3>
       <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:items-stretch">
         <div
           role="img"
