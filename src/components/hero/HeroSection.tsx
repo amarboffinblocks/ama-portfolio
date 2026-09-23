@@ -10,7 +10,7 @@ export function HeroSection() {
 
   return (
     <SectionWrapper>
-      <Container className="flex items-center justify-center pb-10 pt-20">
+      <Container className="flex items-center justify-center pb-8 pt-8 sm:pb-10 sm:pt-14 lg:pt-20">
         <div className="flex w-full max-w-2xl flex-col items-center">
           <ProfileCard isOpen={isOpen} onClose={close} />
           <DrawerToggle isOpen={isOpen} onToggle={toggle} />

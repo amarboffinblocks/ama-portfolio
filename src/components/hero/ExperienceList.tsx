@@ -59,15 +59,17 @@ function ExperienceBadge({ icon }: { icon: ExperienceIconName }) {
 
 export function ExperienceRow({ item }: { item: ExperienceItem }) {
   return (
-    <div className="flex items-center justify-between py-1">
-      <div className="flex items-center gap-3.5">
+    <div className="flex items-start justify-between gap-3 py-1 sm:items-center">
+      <div className="flex min-w-0 items-center gap-3 sm:gap-3.5">
         <ExperienceBadge icon={item.icon} />
-        <div>
+        <div className="min-w-0">
           <h4 className="text-sm font-semibold text-foreground">{item.company}</h4>
           <p className="mt-0.5 text-xs font-normal text-neutral-500">{item.role}</p>
         </div>
       </div>
-      <span className="font-mono text-xs text-neutral-400">{item.dates}</span>
+      <span className="shrink-0 pt-0.5 font-mono text-[10px] text-neutral-400 sm:pt-0 sm:text-xs">
+        {item.dates}
+      </span>
     </div>
   );
 }

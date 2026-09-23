@@ -23,9 +23,9 @@ export function ProfileDrawer({ isOpen, onClose }: ProfileDrawerProps) {
         isOpen ? "max-h-[6000px] opacity-100" : "pointer-events-none max-h-0 opacity-0",
       )}
     >
-      <div className="flex items-center justify-center pb-4 pt-8">
+      <div className="flex items-center justify-center pb-3 pt-6 sm:pb-4 sm:pt-8">
         <div className="grow border-t border-dashed border-neutral-200 dark:border-white/10" />
-        <Button variant="ghost" className="gap-1.5 px-4" onClick={onClose}>
+        <Button variant="ghost" className="gap-1.5 px-3 text-[10px] sm:px-4 sm:text-[11px]" onClick={onClose}>
           <span>OK, THAT&apos;S ENOUGH</span>
           <ChevronUpIcon className="h-3.5 w-3.5" />
         </Button>

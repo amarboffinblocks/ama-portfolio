@@ -92,7 +92,7 @@ export function ProjectLightbox({
           <button
             type="button"
             aria-label="Previous image"
-            className="absolute left-3 z-10 rounded-full bg-white/10 p-2.5 text-white transition-colors hover:bg-white/20 sm:left-6"
+            className="absolute left-2 z-10 rounded-full bg-white/10 p-2 text-white transition-colors hover:bg-white/20 sm:left-6 sm:p-2.5"
             onClick={(event) => {
               event.stopPropagation();
               showPrevious();
@@ -103,7 +103,7 @@ export function ProjectLightbox({
           <button
             type="button"
             aria-label="Next image"
-            className="absolute right-3 z-10 rounded-full bg-white/10 p-2.5 text-white transition-colors hover:bg-white/20 sm:right-6"
+            className="absolute right-2 z-10 rounded-full bg-white/10 p-2 text-white transition-colors hover:bg-white/20 sm:right-6 sm:p-2.5"
             onClick={(event) => {
               event.stopPropagation();
               showNext();

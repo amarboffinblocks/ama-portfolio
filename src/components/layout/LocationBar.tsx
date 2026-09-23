@@ -70,8 +70,8 @@ export function LocationBar({
   return (
     <div
       className={cn(
-        "hidden items-center gap-2 font-normal text-muted xl:flex",
-        className,
+        "items-center gap-2 font-normal text-muted",
+        className ?? "hidden lg:flex",
       )}
     >
       <span>{label}</span>

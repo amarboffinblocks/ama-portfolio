@@ -16,14 +16,14 @@ const sizeClass = {
   lg: "h-20 w-20",
 } as const;
 
-export function Avatar({ src, alt, size = "lg", className, crop }: AvatarProps) {
+export function Avatar({ src, alt, size, className, crop }: AvatarProps) {
   return (
     <div
       role="img"
       aria-label={alt}
       className={cn(
-        "overflow-hidden rounded-full border border-neutral-100 shadow-sm shrink-0 bg-cover bg-center",
-        sizeClass[size],
+        "shrink-0 overflow-hidden rounded-full border border-neutral-100 bg-cover bg-center shadow-sm",
+        size ? sizeClass[size] : className ? undefined : "h-20 w-20",
         className,
       )}
       style={{

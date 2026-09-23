@@ -9,7 +9,7 @@ export function SkillsMarquee({ skills }: SkillsMarqueeProps) {
   const sequence = [...skills, ...skills];
 
   return (
-    <div className="group -mx-8 mt-6 sm:-mx-10">
+    <div className="group -mx-5 mt-5 sm:-mx-8 sm:mt-6 md:-mx-10">
       <p className="sr-only">Skills: {skills.join(", ")}</p>
       <div
         aria-hidden="true"

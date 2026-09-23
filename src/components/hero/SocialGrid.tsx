@@ -53,7 +53,7 @@ export function SocialGrid() {
         <div
           role="img"
           aria-label={profile.name}
-          className="min-h-[220px] overflow-hidden rounded-2xl border border-neutral-200/70 bg-cover bg-center"
+          className="min-h-[180px] overflow-hidden rounded-2xl border border-neutral-200/70 bg-cover bg-center sm:min-h-[220px]"
           style={{
             backgroundImage: `url('${profile.avatarSrc}')`,
             backgroundPosition: "13.5% 20%",

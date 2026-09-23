@@ -134,7 +134,7 @@ export function ThemeToggle() {
       >
         <ThemeGlyph
           preference={resolved === "dark" ? "dark" : "light"}
-          className="h-5 w-5"
+          className="h-4 w-4 sm:h-5 sm:w-5"
         />
       </IconButton>
       {open ? (
