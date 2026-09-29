@@ -1,34 +1,13 @@
 import { BrowserWindow } from "@/components/common";
-import { ExpeditionPreview } from "@/components/projects/previews/ExpeditionPreview";
-import { MotsclesPreview } from "@/components/projects/previews/MotsclesPreview";
-import { SpacetimePreview } from "@/components/projects/previews/SpacetimePreview";
-import { SynthesioPreview } from "@/components/projects/previews/SynthesioPreview";
+import { BoffinblocksPreview } from "@/components/projects/previews/BoffinblocksPreview";
 import type { ProjectPreviewId } from "@/types";
 
 export function ProjectPreview({ preview }: { preview: ProjectPreviewId }) {
   switch (preview) {
-    case "motscles":
-      return (
-        <BrowserWindow chrome="light">
-          <MotsclesPreview />
-        </BrowserWindow>
-      );
-    case "spacetime":
+    case "boffinblocks":
       return (
         <BrowserWindow chrome="cosmos">
-          <SpacetimePreview />
-        </BrowserWindow>
-      );
-    case "expedition":
-      return (
-        <BrowserWindow chrome="symphony">
-          <ExpeditionPreview />
-        </BrowserWindow>
-      );
-    case "synthesio":
-      return (
-        <BrowserWindow chrome="light">
-          <SynthesioPreview />
+          <BoffinblocksPreview />
         </BrowserWindow>
       );
     default: {

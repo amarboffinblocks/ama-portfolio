@@ -32,12 +32,18 @@ export type ThemePreference = "light" | "dark" | "system";
 
 export type ProjectTheme = "light" | "dark";
 
-export type ProjectPreviewId = "motscles" | "spacetime" | "expedition" | "synthesio";
+export type ProjectPreviewId = "boffinblocks";
 
 export type ProjectImage = {
   src: string;
   alt: string;
   label: string;
+};
+
+export type ProjectVideo = {
+  src: string;
+  poster?: string;
+  label?: string;
 };
 
 export type Project = {
@@ -56,5 +62,7 @@ export type Project = {
   approach: string;
   outcome: string;
   images: readonly ProjectImage[];
+  /** Optional project walkthrough / demo video. Hidden when omitted. */
+  video?: ProjectVideo;
   repoHref?: string;
 };

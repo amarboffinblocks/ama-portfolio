@@ -3,62 +3,59 @@
 import { useState } from "react";
 import Image from "next/image";
 import { AnimatePresence } from "motion/react";
-import { BrowserWindow } from "@/components/common";
+import { Card } from "@/components/common";
 import { ExpandIcon } from "@/components/icons";
 import { ProjectLightbox } from "@/components/projects/ProjectLightbox";
-import type { Project, ProjectImage, ProjectTheme } from "@/types";
+import type { Project, ProjectImage } from "@/types";
 
 type ProjectGalleryProps = {
   project: Project;
 };
 
-function chromeForTheme(theme: ProjectTheme) {
-  return theme === "dark" ? "cosmos" : "light";
-}
-
-function GalleryFrame({
-  image,
-  chrome,
-  onOpen,
-}: {
+type GalleryFrameProps = {
   image: ProjectImage;
-  chrome: "light" | "cosmos" | "symphony";
   onOpen: () => void;
-}) {
+  featured?: boolean;
+};
+
+function GalleryFrame({ image, onOpen, featured = false }: GalleryFrameProps) {
   return (
-    <figure className="min-w-0">
+    <Card className="group/card min-w-0 overflow-hidden rounded-2xl p-4 transition-shadow duration-300 hover:shadow-smooth">
       <button
         type="button"
-        className="group block w-full cursor-zoom-in text-left"
+        className="group relative block w-full cursor-zoom-in overflow-hidden rounded-xl border border-neutral-100 bg-[#f8f8fa] p-3 text-left transition-all duration-300 hover:border-neutral-200/90 sm:p-4 dark:border-white/5 dark:bg-background dark:hover:border-white/15"
         onClick={onOpen}
         aria-label={`View ${image.label} fullscreen`}
       >
-        <BrowserWindow chrome={chrome}>
-          <div className="relative aspect-16/10 w-full overflow-hidden">
-            <Image
-              src={image.src}
-              alt={image.alt}
-              fill
-              className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-              sizes="(max-width: 768px) 100vw, (max-width: 1400px) 50vw, 680px"
-            />
-            <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-200 group-hover:bg-black/35 group-hover:opacity-100">
-              <span className="flex h-11 w-11 items-center justify-center rounded-full bg-white/95 text-neutral-800 shadow-sm">
-                <ExpandIcon className="h-5 w-5" />
-              </span>
-            </div>
-          </div>
-        </BrowserWindow>
+        <div className="relative aspect-16/10 w-full overflow-hidden rounded-lg transition-transform duration-300 group-hover/card:scale-[1.015]">
+          <Image
+            src={image.src}
+            alt={image.alt}
+            fill
+            className="object-cover object-top"
+            sizes={
+              featured
+                ? "(max-width: 1400px) 100vw, 1400px"
+                : "(max-width: 768px) 100vw, (max-width: 1400px) 50vw, 680px"
+            }
+            priority={featured}
+          />
+        </div>
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0 flex items-center justify-center rounded-xl bg-[#0b1f4d]/0 opacity-0 transition-all duration-300 group-hover:bg-[#0b1f4d]/45 group-hover:opacity-100 dark:group-hover:bg-black/50"
+        >
+          <span className="flex translate-y-2 items-center gap-2 rounded-full bg-white px-4 py-2.5 text-[13px] font-semibold text-[#0b1f4d] shadow-lg transition-transform duration-300 group-hover:translate-y-0">
+            <ExpandIcon className="h-4 w-4" />
+            View
+          </span>
+        </div>
       </button>
-      <figcaption className="mt-2.5 text-center text-xs text-neutral-400">
-        {image.label}
-      </figcaption>
-    </figure>
+    </Card>
   );
 }
 
 export function ProjectGallery({ project }: ProjectGalleryProps) {
-  const chrome = chromeForTheme(project.theme);
   const images = project.images;
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const [primary, ...rest] = images;
@@ -69,19 +66,18 @@ export function ProjectGallery({ project }: ProjectGalleryProps) {
 
   return (
     <>
-      <div className="space-y-5">
+      <div className="space-y-6 sm:space-y-8 lg:space-y-10">
         <GalleryFrame
           image={primary}
-          chrome={chrome}
+          featured
           onOpen={() => setLightboxIndex(0)}
         />
         {rest.length > 0 ? (
-          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-8 lg:gap-10">
+          <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:gap-10">
             {rest.map((image, offset) => (
               <GalleryFrame
                 key={image.src}
                 image={image}
-                chrome={chrome}
                 onOpen={() => setLightboxIndex(offset + 1)}
               />
             ))}

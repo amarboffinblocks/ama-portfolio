@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { ClickSoundProvider } from "@/components/providers/ClickSoundProvider";
 import "./globals.css";
 
@@ -14,7 +15,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className="h-full scroll-smooth antialiased" suppressHydrationWarning>
       <body className="min-h-full bg-background font-sans text-foreground selection:bg-neutral-200 dark:selection:bg-white/15">
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <Script id="theme-init" strategy="beforeInteractive">
+          {themeInitScript}
+        </Script>
         <ClickSoundProvider>{children}</ClickSoundProvider>
       </body>
     </html>

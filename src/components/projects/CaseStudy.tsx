@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Card, Container, PageSheet } from "@/components/common";
+import { Container, PageSheet, SectionHeading } from "@/components/common";
 import { DrawerToggle } from "@/components/hero/DrawerToggle";
 import { ProjectGallery } from "@/components/projects/ProjectGallery";
 import { ProjectIntroCard } from "@/components/projects/ProjectIntroCard";
-import { ProjectPreview } from "@/components/projects/ProjectPreview";
+import { ProjectVideoPlayer } from "@/components/projects/ProjectVideoPlayer";
 import { relayoutPageSheet } from "@/lib/page-sheet";
 import type { Project } from "@/types";
 
@@ -40,26 +40,24 @@ export function CaseStudy({ project, previous, next }: CaseStudyProps) {
 
       <PageSheet />
 
-      <Container className="relative z-10 mt-8 space-y-4 sm:mt-10 sm:space-y-5">
-        <Card className="relative z-10 w-full overflow-hidden rounded-xl p-4 sm:p-6 lg:p-8">
-          <h2 className="mb-3 text-base font-semibold text-foreground sm:mb-4">
-            Preview
-          </h2>
-          <div className="rounded-xl border border-neutral-100 bg-[#f8f8fa] p-3 sm:p-6 dark:border-white/5 dark:bg-background">
+      <Container className="relative z-10 mt-10 space-y-10 sm:mt-14 sm:space-y-12">
+        {project.video?.src ? (
+          <section>
+            <SectionHeading label="Demo" title="Product walkthrough" />
             <div className="mx-auto max-w-4xl">
-              <ProjectPreview preview={project.preview} />
+              <ProjectVideoPlayer video={project.video} theme={project.theme} />
             </div>
-          </div>
-        </Card>
+          </section>
+        ) : null}
 
-        <Card className="relative z-10 w-full overflow-hidden rounded-xl p-4 sm:p-6 lg:p-8">
-          <h2 className="mb-3 text-base font-semibold text-foreground sm:mb-4">
-            Screens
-          </h2>
-          <ProjectGallery project={project} />
-        </Card>
+        {project.images.length > 0 ? (
+          <section>
+            <SectionHeading label="Gallery" title="Product screens" />
+            <ProjectGallery project={project} />
+          </section>
+        ) : null}
 
-        <nav className="flex items-start justify-between gap-3 px-1 pt-2 sm:gap-4 sm:pt-3">
+        <nav className="flex items-start justify-between gap-3 border-t border-neutral-200/80 px-1 pt-6 dark:border-white/10 sm:gap-4 sm:pt-8">
           {previous ? (
             <Link
               href={`/projects/${previous.id}`}

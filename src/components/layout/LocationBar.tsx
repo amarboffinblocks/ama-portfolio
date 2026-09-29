@@ -50,7 +50,7 @@ export function LocationBar({
   label = "Currently in",
   className,
 }: LocationBarProps) {
-  const [now, setNow] = useState(() => new Date());
+  const [now, setNow] = useState<Date | null>(null);
   const live = useLiveWeather(location);
 
   useEffect(() => {
@@ -63,8 +63,12 @@ export function LocationBar({
   const resolvedTimeZone = timeZone ?? live.timeZone ?? SITE.timeZone;
   const weatherLabel = live.label ?? weatherFallback;
   const day =
-    live.isDay !== null ? live.isDay : isDaytime(now, resolvedTimeZone);
-  const time = formatLocalTime(now, resolvedTimeZone);
+    live.isDay !== null
+      ? live.isDay
+      : now
+        ? isDaytime(now, resolvedTimeZone)
+        : true;
+  const time = now ? formatLocalTime(now, resolvedTimeZone) : "––:––";
   const cityLabel = live.resolvedCity ?? location;
 
   return (
@@ -78,7 +82,10 @@ export function LocationBar({
       <span className="rounded-full bg-soft px-2.5 py-1 text-[11px] text-foreground/80">
         {cityLabel}
       </span>
-      <span className="rounded-full bg-soft px-2.5 py-1 text-[11px] text-foreground/80">
+      <span
+        className="rounded-full bg-soft px-2.5 py-1 text-[11px] tabular-nums text-foreground/80"
+        suppressHydrationWarning
+      >
         {time}
       </span>
       <div
