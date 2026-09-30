@@ -1,6 +1,6 @@
 export const SITE = {
   name: "Amarjeet Singh",
-  role: "Full Stack Developer",
+  role: "Generative AI & Full Stack Developer",
   email: "mailto:hello@amarjeetsingh.dev",
   cvHref: "#cv",
   location: "Mohali",

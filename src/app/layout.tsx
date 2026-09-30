@@ -4,9 +4,9 @@ import { ClickSoundProvider } from "@/components/providers/ClickSoundProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Amarjeet Singh — Full Stack Developer",
+  title: "Amarjeet Singh — Generative AI & Full Stack Developer",
   description:
-    "Portfolio of Amarjeet Singh, full stack developer based in India.",
+    "Generative AI and full-stack developer with 3 years of experience. Next.js, MERN, and Webflow — based in Mohali.",
 };
 
 const themeInitScript = `(function(){try{var stored=localStorage.getItem("theme");var theme=stored==="light"||stored==="dark"||stored==="system"?stored:"system";var dark=theme==="dark"||(theme==="system"&&window.matchMedia("(prefers-color-scheme: dark)").matches);document.documentElement.classList.toggle("dark",dark);document.documentElement.dataset.theme=theme;}catch(e){}})();`;

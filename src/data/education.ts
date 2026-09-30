@@ -2,13 +2,11 @@ import type { EducationItem } from "@/types";
 
 export const education: EducationItem[] = [
   {
-    school: "University of Delhi",
-    degree: "B.Tech in Computer Science",
-    dates: "2019 – 2023",
-  },
-  {
-    school: "Kendriya Vidyalaya",
-    degree: "Higher Secondary, Science",
-    dates: "2017 – 2019",
+    school: "Chandigarh University",
+    degree: "BCA",
+    dates: "01/2026 – Present",
+    location: "Mohali, Punjab",
+    href: "https://www.cuchd.in/",
+    logoSrc: "/companies/cuchd.png",
   },
 ];

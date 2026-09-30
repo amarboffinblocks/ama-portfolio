@@ -1,5 +1,12 @@
 import type { ReactNode } from "react";
-import { AppleIcon, DeviceIcon, SearchIcon, SpintankIcon } from "@/components/icons";
+import Image from "next/image";
+import {
+  AppleIcon,
+  DeviceIcon,
+  ExternalLinkIcon,
+  SearchIcon,
+  SpintankIcon,
+} from "@/components/icons";
 import { cn } from "@/lib/cn";
 import type { ExperienceIcon as ExperienceIconName, ExperienceItem } from "@/types";
 
@@ -57,19 +64,74 @@ function ExperienceBadge({ icon }: { icon: ExperienceIconName }) {
   );
 }
 
-export function ExperienceRow({ item }: { item: ExperienceItem }) {
+function CompanyLogo({ src, alt }: { src: string; alt: string }) {
   return (
-    <div className="flex items-start justify-between gap-3 py-1 sm:items-center">
+    <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full border border-neutral-200/80 bg-white">
+      <Image alt={alt} className="object-cover" fill sizes="44px" src={src} />
+    </div>
+  );
+}
+
+function CompanyLink({ href, children }: { href: string; children: ReactNode }) {
+  return (
+    <a
+      href={href}
+      rel="noopener noreferrer"
+      target="_blank"
+      className="group/link inline-flex items-center gap-1 transition-colors hover:text-blue-600"
+    >
+      {children}
+      <ExternalLinkIcon
+        className="h-3 w-3 shrink-0 text-neutral-400 transition-colors group-hover/link:text-blue-600"
+        aria-hidden
+      />
+      <span className="sr-only">(opens in new tab)</span>
+    </a>
+  );
+}
+
+export function ExperienceRow({ item }: { item: ExperienceItem }) {
+  const mark = item.logoSrc ? (
+    <CompanyLogo alt={`${item.company} logo`} src={item.logoSrc} />
+  ) : (
+    <ExperienceBadge icon={item.icon} />
+  );
+
+  return (
+    <div className="flex items-start justify-between gap-3 py-1">
       <div className="flex min-w-0 items-center gap-3 sm:gap-3.5">
-        <ExperienceBadge icon={item.icon} />
+        {item.href ? (
+          <a
+            href={item.href}
+            rel="noopener noreferrer"
+            target="_blank"
+            className="shrink-0 transition-opacity hover:opacity-80"
+            aria-label={`${item.company} website`}
+          >
+            {mark}
+          </a>
+        ) : (
+          mark
+        )}
         <div className="min-w-0">
-          <h4 className="text-sm font-semibold text-foreground">{item.company}</h4>
+          <h4 className="text-sm font-semibold text-foreground">
+            {item.href ? (
+              <CompanyLink href={item.href}>{item.company}</CompanyLink>
+            ) : (
+              item.company
+            )}
+          </h4>
           <p className="mt-0.5 text-xs font-normal text-neutral-500">{item.role}</p>
         </div>
       </div>
-      <span className="shrink-0 pt-0.5 font-mono text-[10px] text-neutral-400 sm:pt-0 sm:text-xs">
-        {item.dates}
-      </span>
+      <div className="shrink-0 pt-0.5 text-right">
+        <span className="block font-mono text-[10px] text-neutral-400 sm:text-xs">
+          {item.dates}
+        </span>
+        {item.location ? (
+          <p className="mt-0.5 text-[11px] text-neutral-400">{item.location}</p>
+        ) : null}
+      </div>
     </div>
   );
 }

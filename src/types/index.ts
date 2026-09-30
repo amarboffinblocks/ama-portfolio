@@ -4,6 +4,9 @@ export type ExperienceItem = {
   company: string;
   role: string;
   dates: string;
+  location?: string;
+  href?: string;
+  logoSrc?: string;
   icon: ExperienceIcon;
 };
 
@@ -19,6 +22,9 @@ export type EducationItem = {
   school: string;
   degree: string;
   dates: string;
+  location?: string;
+  href?: string;
+  logoSrc?: string;
 };
 
 export type CertificateItem = {
