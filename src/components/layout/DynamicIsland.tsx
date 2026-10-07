@@ -2,17 +2,18 @@
 
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
+import Image from "next/image";
 import {
   CheckIcon,
   CloseIcon,
   ComputerIcon,
   InstagramIcon,
-  IslandAvatarIcon,
   LinkedInIcon,
   MailIcon,
   MoonIcon,
   SunIcon,
 } from "@/components/icons";
+import { profile } from "@/data/profile";
 import { socialLinks } from "@/data/socials";
 import { useTheme } from "@/hooks/useTheme";
 import { SITE } from "@/lib/constants";
@@ -174,9 +175,15 @@ export function DynamicIsland() {
             transition={{ duration: 0.18 }}
             className="flex items-center gap-1.5 px-2 py-1.5 sm:gap-3 sm:px-3 sm:py-2"
           >
-            <div className="h-7 w-7 shrink-0 overflow-hidden rounded-full bg-linear-to-tr from-pink-400 via-rose-300 to-amber-200 p-[1.5px] sm:h-8 sm:w-8">
-              <div className="flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-stone-800">
-                <IslandAvatarIcon />
+            <div className="relative h-7 w-7 shrink-0 overflow-hidden rounded-full bg-linear-to-tr from-pink-400 via-rose-300 to-amber-200 p-[1.5px] sm:h-8 sm:w-8">
+              <div className="relative h-full w-full overflow-hidden rounded-full bg-stone-800">
+                <Image
+                  src={profile.avatarSrc}
+                  alt={profile.name}
+                  fill
+                  className="object-cover object-top"
+                  sizes="32px"
+                />
               </div>
             </div>
             <div className="h-4 w-px bg-current/20 sm:h-5" />

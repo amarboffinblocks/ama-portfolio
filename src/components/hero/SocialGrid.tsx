@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { InstagramIcon, LinkedInIcon } from "@/components/icons";
 import { profile } from "@/data/profile";
 import { socialLinks } from "@/data/socials";
@@ -50,16 +51,15 @@ export function SocialGrid() {
     <div className="pt-2">
       <h3 className="mb-4 text-base font-semibold text-foreground">Social</h3>
       <div className="grid grid-cols-1 gap-3.5 sm:grid-cols-2 sm:items-stretch">
-        <div
-          role="img"
-          aria-label={profile.name}
-          className="min-h-[180px] overflow-hidden rounded-2xl border border-neutral-200/70 bg-cover bg-center sm:min-h-[220px]"
-          style={{
-            backgroundImage: `url('${profile.avatarSrc}')`,
-            backgroundPosition: "13.5% 20%",
-            backgroundSize: "1350%",
-          }}
-        />
+        <div className="relative min-h-[180px] overflow-hidden rounded-2xl border border-neutral-200/70 sm:min-h-[220px] dark:border-white/10">
+          <Image
+            src={profile.avatarSrc}
+            alt={profile.name}
+            fill
+            className="object-cover object-top"
+            sizes="(max-width: 640px) 100vw, 280px"
+          />
+        </div>
         <div className="flex flex-col gap-3.5">
           {socialLinks.map((link) => (
             <SocialCard key={link.network} link={link} />

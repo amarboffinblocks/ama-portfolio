@@ -38,12 +38,12 @@ export type ThemePreference = "light" | "dark" | "system";
 
 export type ProjectTheme = "light" | "dark";
 
-export type ProjectPreviewId = "boffinblocks" | "astroansh";
-
 export type ProjectImage = {
   src: string;
   alt: string;
   label: string;
+  width?: number;
+  height?: number;
 };
 
 export type ProjectVideo = {
@@ -59,7 +59,6 @@ export type Project = {
   href: string;
   caption: string;
   theme: ProjectTheme;
-  preview: ProjectPreviewId;
   role: string;
   year: string;
   stack: readonly string[];
@@ -67,6 +66,9 @@ export type Project = {
   challenge: string;
   approach: string;
   outcome: string;
+  /** Card / featured gallery image */
+  banner: ProjectImage;
+  /** Case-study screens only (banner is separate) */
   images: readonly ProjectImage[];
   /** Optional project walkthrough / demo video. Hidden when omitted. */
   video?: ProjectVideo;

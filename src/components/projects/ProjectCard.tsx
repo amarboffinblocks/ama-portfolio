@@ -14,10 +14,6 @@ function ProjectHost({ host }: { host: string }) {
 
 export function ProjectCard({ project }: { project: Project }) {
   const caseStudyHref = `/projects/${project.id}`;
-  console.log(project)
-
-
-  
 
   return (
     <Card
@@ -51,7 +47,7 @@ export function ProjectCard({ project }: { project: Project }) {
         className="relative flex grow cursor-pointer flex-col items-center overflow-hidden rounded-xl border border-neutral-100 bg-[#f8f8fa] p-3 transition-all duration-300 hover:border-neutral-200/90 sm:p-4 md:p-6 dark:border-white/5 dark:bg-background dark:hover:border-white/15"
       >
         <div className="relative w-full transition-transform duration-300 group-hover/card:scale-[1.015]">
-          <ProjectPreview preview={project.preview} />
+          <ProjectPreview project={project} />
         </div>
         <div
           aria-hidden

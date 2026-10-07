@@ -27,12 +27,13 @@ function GalleryFrame({ image, onOpen, featured = false }: GalleryFrameProps) {
         onClick={onOpen}
         aria-label={`View ${image.label} fullscreen`}
       >
-        <div className="relative aspect-16/10 w-full overflow-hidden rounded-lg transition-transform duration-300 group-hover/card:scale-[1.015]">
+        <div className="w-full overflow-hidden rounded-lg bg-neutral-100 transition-transform duration-300 group-hover/card:scale-[1.015] dark:bg-neutral-900">
           <Image
             src={image.src}
             alt={image.alt}
-            fill
-            className="object-cover object-top"
+            width={image.width ?? 1920}
+            height={image.height ?? 1080}
+            className="h-auto w-full"
             sizes={
               featured
                 ? "(max-width: 1400px) 100vw, 1400px"
@@ -56,25 +57,21 @@ function GalleryFrame({ image, onOpen, featured = false }: GalleryFrameProps) {
 }
 
 export function ProjectGallery({ project }: ProjectGalleryProps) {
-  const images = project.images;
+  const gallery = [project.banner, ...project.images];
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const [primary, ...rest] = images;
-
-  if (!primary) {
-    return null;
-  }
+  const screens = project.images;
 
   return (
     <>
       <div className="space-y-6 sm:space-y-8 lg:space-y-10">
         <GalleryFrame
-          image={primary}
+          image={project.banner}
           featured
           onOpen={() => setLightboxIndex(0)}
         />
-        {rest.length > 0 ? (
+        {screens.length > 0 ? (
           <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:gap-10">
-            {rest.map((image, offset) => (
+            {screens.map((image, offset) => (
               <GalleryFrame
                 key={image.src}
                 image={image}
@@ -89,7 +86,7 @@ export function ProjectGallery({ project }: ProjectGalleryProps) {
         {lightboxIndex !== null ? (
           <ProjectLightbox
             key="project-lightbox"
-            images={images}
+            images={gallery}
             index={lightboxIndex}
             onClose={() => setLightboxIndex(null)}
             onChange={setLightboxIndex}

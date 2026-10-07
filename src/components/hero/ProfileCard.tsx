@@ -16,7 +16,6 @@ export function ProfileCard({ isOpen, onClose }: ProfileCardProps) {
           src={profile.avatarSrc}
           alt={profile.name}
           className="h-16 w-16 sm:h-20 sm:w-20"
-          crop={{ position: "13.5% 20%", size: "1350%" }}
         />
         <Button href={profile.email} className="gap-2 px-3 py-2 sm:gap-2.5 sm:px-4">
           <ChatIcon className="h-4 w-4 shrink-0" />

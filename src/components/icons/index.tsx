@@ -284,20 +284,3 @@ export function BadgeIcon(props: IconProps) {
     </svg>
   );
 }
-
-export function IslandAvatarIcon(props: IconProps) {
-  return (
-    <svg viewBox="0 0 40 40" fill="none" className="h-full w-full scale-125" {...props}>
-      <rect fill="#fbcfe8" height="40" width="40" />
-      <circle cx="20" cy="17" fill="#fda4af" r="9" />
-      <path
-        d="M14 16C14 16 16 20 20 20C24 20 26 16 26 16"
-        stroke="#f43f5e"
-        strokeLinecap="round"
-        strokeWidth="2"
-      />
-      <path d="M16 15C16 15 17 12 21 12" stroke="#e11d48" strokeLinecap="round" strokeWidth="1.8" />
-      <circle cx="20" cy="35" fill="#fb7185" r="14" />
-    </svg>
-  );
-}
