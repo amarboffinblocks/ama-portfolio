@@ -14,6 +14,10 @@ function ProjectHost({ host }: { host: string }) {
 
 export function ProjectCard({ project }: { project: Project }) {
   const caseStudyHref = `/projects/${project.id}`;
+  console.log(project)
+
+
+  
 
   return (
     <Card

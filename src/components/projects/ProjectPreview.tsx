@@ -1,6 +1,9 @@
+"use client"
 import { BrowserWindow } from "@/components/common";
-import { BoffinblocksPreview } from "@/components/projects/previews/BoffinblocksPreview";
-import type { ProjectPreviewId } from "@/types";
+import { AstroAnshPreview, BoffinblocksPreview } from "@/components/projects/previews/BoffinblocksPreview";
+import {  ProjectPreviewId } from "@/types";
+import Image from "next/image";
+
 
 export function ProjectPreview({ preview }: { preview: ProjectPreviewId }) {
   switch (preview) {
@@ -10,9 +13,18 @@ export function ProjectPreview({ preview }: { preview: ProjectPreviewId }) {
           <BoffinblocksPreview />
         </BrowserWindow>
       );
+    case "astroansh":
+        return (
+        <BrowserWindow chrome="cosmos">
+          <AstroAnshPreview />
+        </BrowserWindow>
+      );
+
     default: {
       const _exhaustive: never = preview;
       return _exhaustive;
     }
   }
 }
+
+

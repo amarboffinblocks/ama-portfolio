@@ -58,4 +58,63 @@ export const projects: Project[] = [
       },
     ],
   },
+
+  {
+    id: "astroansh",
+    title: "Astroansh",
+    host: "astroansh.com", // Replace if the domain is different
+    href: "https://astroansh.com/",
+    caption: "Astroansh — website and digital experience",
+    theme: "dark",
+    preview: "astroansh",
+    role: "Full stack developer",
+    year: "2026",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS"],
+    overview:
+      "A digital experience built for Astroansh, focused on presenting its services and providing visitors with a clear, engaging user experience.",
+    challenge:
+      "Create a professional, responsive website that communicates the brand clearly and makes its key services easy to discover.",
+    approach:
+      "Built a responsive interface with reusable components, consistent styling, and a user-friendly layout across desktop and mobile.",
+    outcome:
+      "Created a digital platform to showcase Astroansh and provide visitors with an accessible, streamlined browsing experience.",
+
+    images: [
+      {
+        src: "/projects/astroansh/banner.png",
+        alt: "Astroansh homepage banner showcasing the platform and its branding",
+        label: "Homepage",
+      },
+      {
+        src: "/projects/astroansh/screens/screen-01.png",
+        alt: "Astroansh application interface and core application features",
+        label: "The Application",
+      },
+      {
+        src: "/projects/astroansh/screens/screen-02.png",
+        alt: "Astroansh learning experience interface and educational content",
+        label: "Learning Experience",
+      },
+      {
+        src: "/projects/astroansh/screens/screen-03.png",
+        alt: "Astroansh learning experience screens showcasing the learning interface",
+        label: "Learning Experience",
+      },
+      {
+        src: "/projects/astroansh/screens/screen-04.png",
+        alt: "Astroansh Kundali generation interface for creating personalized birth charts",
+        label: "Kundali Generation",
+      },
+      {
+        src: "/projects/astroansh/screens/screen-05.png",
+        alt: "Astroansh additional application screens showcasing platform features",
+        label: "Other Screens",
+      },
+      {
+        src: "/projects/astroansh/screens/screen-06.png",
+        alt: "Astroansh brand guidelines showcasing visual identity and design standards",
+        label: "Brand Guidelines",
+      },
+    ],
+  },
 ];

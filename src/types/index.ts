@@ -38,7 +38,7 @@ export type ThemePreference = "light" | "dark" | "system";
 
 export type ProjectTheme = "light" | "dark";
 
-export type ProjectPreviewId = "boffinblocks";
+export type ProjectPreviewId = "boffinblocks" | "astroansh";
 
 export type ProjectImage = {
   src: string;
